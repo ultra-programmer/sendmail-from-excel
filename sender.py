@@ -5,10 +5,10 @@
 import pandas as pd
 from smtplib import SMTP
 
-# Read the CSV file (NOTE: The information given is not real)
-emailList = pd.read_csv("email-list.csv")
+# Read the Excel file (NOTE: The information given is not real)
+emailList = pd.read_excel("email-list.xlsx")
 
-# Grab all data from the CSV file
+# Grab all data from the Excel file
 emails = emailList["Email"]
 firstNames = emailList["Recipient First Name"]
 lastNames = emailList["Recipient Last Name"]
@@ -25,26 +25,27 @@ senderPassword = input("What is the password for the above email address? ")
 # Login using the input information
 s.login(senderEmail, senderPassword)
 
-# Read the subject to be sent to all email addresses in the CSV file
+# Read the subject to be sent to all email addresses in the Excel file
 sbjFile = open("subject.txt", "r")
 sbj = sbjFile.read()
 
-# Read the message to be sent to all email addresses in the CSV file
+# Read the message to be sent to all email addresses in the Excel file
 msgFile = open("message.txt", "r")
 msg = msgFile.read()
 
 # Begin sending messages
 for i in range(len(emails)):
-    # Edit the message with information from the CSV file
+    # Edit the message with information from the Excel file
     msgWithFullName = msg.replace("fullName", "%s %s" % (firstNames[i], lastNames[i]))
     msgFull = msgWithFullName.replace("name", firstNames[i])
 
-    # Edit the subject with information from the CSV file
+    # Edit the subject with information from the Excel file
     sbjWithFullName = sbj.replace("fullName", "%s %s" % (firstNames[i], lastNames[i]))
     sbjFull = sbjWithFullName.replace("name", firstNames[i])
 
     # Send the email
     s.sendmail(senderEmail, emails[i], "Subject: %s\n%s" % (sbj, msgFull))
+    print("Sent email to %s %s at %s." % (firstNames[i], lastNames[i], emails[i]))
 
 # Terminate connection once email sending has completed and close files
 s.quit()
