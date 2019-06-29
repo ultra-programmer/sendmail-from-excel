@@ -5,6 +5,32 @@
 import pandas as pd
 from smtplib import SMTP
 
+while True:
+    try:
+        # Ask what email service they use
+        mailService = input("Which email sending service do you want to use? (Reply \"gmail\" for Gmail, \"yahoo\" for Yahoo Mail, and \"outlook\" for Outlook/Hotmail).")
+
+        # Make sure that the user input something valid
+        if not mailService.lower() in ["gmail", "yahoo", "outlook"]:
+            raise RuntimeError
+
+    except RuntimeError:
+        # Handle the error
+        print("Please enter either \"gmail\", \"yahoo\", or \"outlook\".")
+        continue
+
+    else:
+        # Configure email server string
+        if mailService.lower() == "gmail":
+            serverStr = "smtp.gmail.com"
+        elif mailService.lower() == "yahoo":
+            serverStr = "smtp.mail.yahoo.com"
+        else:
+            serverStr = "smtp-mail.outlook.com"
+
+        # Break out of the loop
+        break
+
 # Read the Excel file (NOTE: The information given is not real)
 emailList = pd.read_excel("email-list.xlsx")
 
@@ -14,7 +40,8 @@ firstNames = emailList["Recipient First Name"]
 lastNames = emailList["Recipient Last Name"]
 
 # Configure SMTP
-s = SMTP("smtp.gmail.com", 587)
+s = SMTP(serverStr, 587)
+s.ehlo()
 s.starttls()
 s.ehlo()
 

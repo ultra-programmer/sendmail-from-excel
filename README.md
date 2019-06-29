@@ -2,17 +2,18 @@
 This Python program takes an input Excel, message, and subject file and sends a personalized email to each recipient listed in the Excel.
 
 ## SMTP Setup
-**NOTE:** As of now, this program only works for Gmail accounts. I apologize for any inconvenience.
+**NOTE:** As of now, this program only works for Gmail, Outlook/Hotmail, and Yahoo accounts. I apologize for any inconvenience.
 
-There are several steps to follow in order to allow the SMTP module to send emails from your account.
+### For Gmail Accounts
+There are several steps to follow in order to allow the SMTP module to send emails from your Gmail account.
 
 1. Log onto [Gmail](https://gmail.com) and sign into your account.
-2. Click the gear icon in the upper-right corner of the page and, from the dropdown, select settings.
+2. Click the gear icon in the upper-right corner of the page and, from the drop-down, select settings.
 3. From the menu bar on the top of the screen, select the "Forwarding and POP/IMAP" option.
 4. Scroll down to the "IMAP Access" and enable IMAP. This can be left enabled, for it should not raise security issues.
 5. Click the "Save Changes" button.
 6. Go to [less secure app access](https://myaccount.google.com/lesssecureapps) on your Google account.
-7. Enable less secure app accesss using the slider. After you finish sending emails, this should be turned off in order to not raise security issues.
+7. Enable less secure app access using the slider. After you finish sending emails, this should be turned off in order to not raise security issues.
 
 ## Configuration
 
