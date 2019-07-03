@@ -13,7 +13,7 @@ There are several steps to follow in order to allow the SMTP module to send emai
 4. Scroll down to the "IMAP Access" and enable IMAP. This can be left enabled, for it should not raise security issues.
 5. Click the "Save Changes" button.
 6. Go to [less secure app access](https://myaccount.google.com/lesssecureapps) on your Google account.
-7. Enable less secure app access using the slider. After you finish sending emails, this should be turned off in order to not raise security issues.
+7. Enable less secure app access using the slider. **After you finish sending emails, this should be turned off in order to not raise security issues.**
 
 ## Configuration
 
