@@ -34,4 +34,4 @@ If you do not have Microsoft Excel do not fret, for you can still edit the file 
 ## Running the Program
 To run the program, download the repository and unzip if necessary. Next, open your terminal, command line, or shell and navigate into the directory containing these files. Install the necessary packages using either `conda install smtplib xlrd pandas` if you have the Anaconda distribution of Python, or `pip install smtplib xlrd pandas` otherwise. Finally, type `python sender.py` to run the script.
 
-Please report any issued in the code in order to help improve this program. Suggestions are welcome. I hope you enjoy the tool! 😄
+Please report any issues in the code in order to help improve this program. Suggestions are welcome. I hope you enjoy the tool! 😄
